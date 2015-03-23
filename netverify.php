@@ -23,6 +23,7 @@ class netVerify{
         	"customerId" => '7007001'
         );      
 
+       	//initiateNetverify
        	$curl_post_data = json_encode($curl_post_data);
 
        curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true);

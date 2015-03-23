@@ -7,5 +7,4 @@ $netVerify = new netVerify();
 
 $netVerify->Initialzie();
 
-
 print_r($netVerify);
