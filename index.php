@@ -1,4 +1,11 @@
 <?php
 
+// Requre netverify lib
+require 'netverify.php';
 
-echo 'Jumio Integration';
+$netVerify = new netVerify();
+
+$netVerify->Initialzie();
+
+
+print_r($netVerify);
