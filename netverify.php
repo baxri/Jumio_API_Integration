@@ -14,48 +14,36 @@ class netVerify{
 
 	public function Initialzie(){
 	   
-       $curl = curl_init($this->rest_url);
+      $curl = curl_init($this->rest_url);
+      $curl_post_data = array(       
+        	"merchantIdScanReference" => '7007001',
+          "successUrl" => 'https://www.unipay.com/en/',
+          "errorUrl" => 'https://www.unipay.com/en/',
+      );      
 
-       	$curl_post_data = array(
-       		"type" => "SSC",
-        	"country" => 'USA',
-        	"merchantScanReference" => '7007001',
-        	"customerId" => '7007001'
-        );      
+      //initiateNetverify
+      $curl_post_data = json_encode($curl_post_data);
 
-       	//initiateNetverify
-       	$curl_post_data = json_encode($curl_post_data);
+      curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt( $curl, CURLOPT_USERPWD, $this->user_id.':'.$this->password ); 
+      curl_setopt( $curl, CURLOPT_POST, true);
+      curl_setopt($curl,  CURLOPT_SSL_VERIFYPEER, 0);
+      curl_setopt($curl,  CURLOPT_SSL_VERIFYHOST, 0);
 
-       curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true);
-       curl_setopt( $curl, CURLOPT_USERPWD, $this->user_id.':'.$this->password ); 
-       curl_setopt( $curl, CURLOPT_POST, true);
-       curl_setopt($curl,  CURLOPT_SSL_VERIFYPEER, 0);
-       curl_setopt($curl,  CURLOPT_SSL_VERIFYHOST, 0);
+      curl_setopt( $curl, CURLOPT_HTTPHEADER, array(
+      'Accept: application/json',
+      'Content-Type: application/json',
+      'User-Agent: UniPAY JVerify/1.0.0'
+      ));
 
-	   curl_setopt( $curl, CURLOPT_HTTPHEADER, array(
-	    'Accept: application/json',
-	    'Content-Type: application/json',
-	    'User-Agent: UniPAY JVerify/1.0.0'
-	   ));
+      curl_setopt($curl, CURLOPT_POSTFIELDS, $curl_post_data);
 
-       curl_setopt($curl, CURLOPT_POSTFIELDS, $curl_post_data);
-
-       $curl_response = curl_exec($curl);
-       $info = curl_getinfo($curl);
-       $error = curl_error($curl);
-
-       curl_close($curl);
-
-      
-
-       
-
-       echo '<pre>';
-	   print_r($curl_response);
-	   die;
- 
-       $xml = new SimpleXMLElement($curl_response);
-
+      $curl_response = curl_exec($curl);
+      $info = curl_getinfo($curl);
+      $error = curl_error($curl);
+      curl_close($curl);
+    
+      return json_decode($curl_response);
 	}
 
 }
