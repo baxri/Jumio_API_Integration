@@ -1,5 +1,4 @@
 <?php
-
 // Requre netverify lib
 require 'netverify.php';
 
