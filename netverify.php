@@ -3,9 +3,9 @@
 
 class netVerify{
 
-	private $rest_url = 'https://netverify.com/api/netverify/v2/initiateNetverify';
-	private $user_id = '91ce9494-ebda-4329-a526-96fa839dbc2134';
-	private $password = 'N1P1pOWvHShyRteHBjy9gWJbba3ClYUmgh';
+	private $rest_url = 'https://netverify.com/api/netverify/v2/test';
+	private $user_id = '35345535-34543-4329-3454-3453535354345';
+	private $password = 'jshdbfsjfskajdfhbsfkjhsdbfkdsjbfkjf;
 
 	public function __construct(){
 
