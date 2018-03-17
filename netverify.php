@@ -4,8 +4,8 @@
 class netVerify{
 
 	private $rest_url = 'https://netverify.com/api/netverify/v2/initiateNetverify';
-	private $user_id = '91ce9494-ebda-4329-a526-96fa839dbc21';
-	private $password = 'N1P1pOWvHShyRteHBjy9gWJbba3ClYUm';
+	private $user_id = '91ce9494-ebda-4329-a526-96fa839dbc2134';
+	private $password = 'N1P1pOWvHShyRteHBjy9gWJbba3ClYUmgh';
 
 	public function __construct(){
 
@@ -16,9 +16,9 @@ class netVerify{
 	   
       $curl = curl_init($this->rest_url);
       $curl_post_data = array(       
-        	"merchantIdScanReference" => '7007001',
-          "successUrl" => 'https://www.unipay.com/en/',
-          "errorUrl" => 'https://www.unipay.com/en/',
+        	"merchantIdScanReference" => '9879878',
+          "successUrl" => '',
+          "errorUrl" => '',
       );      
 
       //initiateNetverify
